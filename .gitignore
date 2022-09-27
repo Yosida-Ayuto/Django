@@ -128,5 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 # 追加
-static
 0001_initial.py
