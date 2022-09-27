@@ -46,8 +46,8 @@ INSTALLED_APPS = [
     
     #変更1
     'django.contrib.sites',
-    # 'allauth',
-    # 'allauth.account',
+    'allauth',
+    'allauth.account',
     # 'django_bootstrap5',
 ]
 
@@ -141,26 +141,27 @@ STATICFILES_DIRS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# AUTH_USER_MODEL = 'accounts.CustomUser'
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 #変更1
-# AUTHENTICATION_BACKENDS = (
-#     'allauth.account.auth_backends.AuthenticationBackend',
+SITE_ID = 1
 
-#     'django.contrib.auth.backends.ModelBackend',
-# )
+AUTHENTICATION_BACKENDS = (
+    'allauth.account.auth_backends.AuthenticationBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
-# ACCOUNT_AUTHENTICATION_METHOD = 'email'
-# ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_USERNAME_REQUIRED = False
 
-# ACCOUNT_EMIAL_VERICATION = 'mandatory'
-# ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMIAL_VERICATION = 'mandatory'
+ACCOUNT_EMAIL_REQUIRED = True
 
-# LOGIN_REDIRECT_URL = 'bulletim_borad:index'
-# ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
+LOGIN_REDIRECT_URL = 'bulletim_borad:index'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
 
-# ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_LOGOUT_ON_GET = True
 
-# ACCOUNT_EMAIL_SUBMIT_PREFIX = ''
+ACCOUNT_EMAIL_SUBMIT_PREFIX = ''
 
 # DEFARUT_FROM_EMAIL = os.environ.get(FROM_EMAIL)
