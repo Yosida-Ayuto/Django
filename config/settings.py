@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 変更
-    'bulletim_board.app.Bulletim_boardConfig',
-    'accounts.app.AccountsConfig',
+    'bulletim_board.apps.Bulletim_boardConfig',
+    'accounts.apps.AccountsConfig',
     
     #変更1
     'django.contrib.sites',
