@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from pickle import TRUE
+from telnetlib import AUTHENTICATION
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +43,12 @@ INSTALLED_APPS = [
     # 変更
     'bulletim_board.app.Bulletim_boardConfig',
     'accounts.app.AccountsConfig',
+    
+    #変更1
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    # 'django_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -122,7 +131,36 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#変更1
+STATIC_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
+#変更1
+AUTHENTICATION_BACKENDS = (
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+# ACCOUNT_AUTHENTICATION_METHOD = 'email'
+# ACCOUNT_USERNAME_REQUIRED = False
+
+# ACCOUNT_EMIAL_VERICATION = 'mandatory'
+# ACCOUNT_EMAIL_REQUIRED = True
+
+LOGIN_REDIRECT_URL = 'bulletim_borad:index'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
+
+ACCOUNT_LOGOUT_ON_GET = True
+
+# ACCOUNT_EMAIL_SUBMIT_PREFIX = ''
+
+# DEFARUT_FROM_EMAIL = os.environ.get(FROM_EMAIL)
