@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 変更
+    'bulletim_board.app.Bulletim_boardConfig',
+    'accounts.app.AccountsConfig',
 ]
 
 MIDDLEWARE = [
