@@ -8,7 +8,7 @@ class IndexView(generic.TemplateView):
 
 class Bulletim_boardListView(LoginRequiredMixin, generic.ListView):
     model = bulletim_board
-    template_name = 'bulletim_bord_list'
+    template_name = 'list.html'
     paginate_by = 2
 
     def get_queryset(self):
