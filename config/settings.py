@@ -115,9 +115,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ja' #en-us
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo' #UT'
 
 USE_I18N = True
 
@@ -164,4 +164,4 @@ ACCOUNT_LOGOUT_ON_GET = True
 
 ACCOUNT_EMAIL_SUBMIT_PREFIX = ''
 
-# DEFARUT_FROM_EMAIL = os.environ.get(FROM_EMAIL)
+DEFARUT_FROM_EMAIL = 'admin@hoge.jp' #os.environ.get(FROM_EMAIL)
