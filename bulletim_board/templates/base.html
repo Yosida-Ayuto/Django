@@ -27,10 +27,15 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'bulletim_board:list' %}">一覧</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">作成</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Sign up</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Log In</a></li>
+                        {% if user.is_authenticated %}
+                                                
+                            <li class="nav-item"><a class="nav-link" href="{% url 'bulletim_board:list' %}">一覧</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">作成</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Log Out</a></li>
+                        {% else %}
+                            <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Sign up</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Log In</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
