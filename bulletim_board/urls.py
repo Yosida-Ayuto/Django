@@ -1,5 +1,5 @@
 from xml.etree.ElementInclude import include
-from django.urls import path
+from django.urls import path,include
 from .import views
 
 app_name ='bulletim_board'
