@@ -7,5 +7,5 @@ app_name ='bulletim_board'
 urlpatterns = [
     path('',views.IndexView.as_view(), name="index"),
     path('list/',views.Bulletim_boardListView.as_view(), name="list"),
-    path('create/',views.CreateView.as_view(), name="create"),
+    path('create/',views.Bulletim_boardCreateView.as_view(), name="create"),
 ]
