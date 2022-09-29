@@ -76,3 +76,8 @@ class DeleteView(LoginRequiredMixin, OnlyYouMixin, generic.DeleteView):
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, "日記を削除しました。")
         return super().delete(request, *args, **kwargs)
+
+# 9/29詳細
+class DetailView(LoginRequiredMixin, generic.DetailView):
+    model = bulletim_board
+    template_name = 'detail.html'
