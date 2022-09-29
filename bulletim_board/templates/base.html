@@ -30,7 +30,7 @@
                         {% if user.is_authenticated %}
                                                 
                             <li class="nav-item"><a class="nav-link" href="{% url 'bulletim_board:list' %}">一覧</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">作成</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'bulletim_board:create' %}">作成</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Log Out</a></li>
                         {% else %}
                             <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Sign up</a></li>
