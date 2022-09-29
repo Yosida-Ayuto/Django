@@ -150,6 +150,8 @@ MEDIA_URL='/media/'
 #変更1
 SITE_ID = 1
 
+EMAIL_BACKEND ='django.core.mail.backends.console.EmailBackend'
+
 AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
     'django.contrib.auth.backends.ModelBackend',
@@ -158,7 +160,7 @@ AUTHENTICATION_BACKENDS = (
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_USERNAME_REQUIRED = False
 
-ACCOUNT_EMIAL_VERICATION = 'mandatory'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_EMAIL_REQUIRED = True
 
 LOGIN_REDIRECT_URL = 'bulletim_board:index'
