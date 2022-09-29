@@ -17,6 +17,8 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+        <!-- コンテンツを下に下げる margin-topを設定したmystyle.cssを参照 -->
+        <link href="{% static 'css/mystyle.css' %}" rel="stylesheet" />
         {% block head %}{% endblock%}
     </head>
     <body id="wrapper">
@@ -30,7 +32,7 @@
                         {% if user.is_authenticated %}
                                                 
                             <li class="nav-item"><a class="nav-link" href="{% url 'bulletim_board:list' %}">一覧</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">作成</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'bulletim_board:create' %}">作成</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Log Out</a></li>
                         {% else %}
                             <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Sign up</a></li>
@@ -52,7 +54,8 @@
         <!-- SimpleLightbox plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <!-- staticで固定するのを忘れていたので追記 -->
+        <script src="{% static 'js/scripts.js' %}"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->

@@ -5,3 +5,7 @@ from django.contrib import admin
 # from .models import CustomUser
 
 # admin.site.register(CustomUser)
+
+from .models import bulletim_board
+
+admin.site.register(bulletim_board)
