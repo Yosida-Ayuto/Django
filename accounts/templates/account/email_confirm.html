@@ -10,10 +10,11 @@
         <div class="my-div-style">
             <h1>会員登録</h1>
             {% if confirmation %}
-            <p>登録ボタンを押してください。</p>
+                <p>登録ボタンを押してください。</p>
+
                 <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
                     {% csrf_token %}
-                    <button type="submit">{% trans 'Confirm' %}</button>
+                    <button class="btn btn-primary" type="submit">登録</button>
                 </form>
 
        
@@ -21,7 +22,7 @@
 
 {% url 'account_email' as email_url %}
 
-<p>リンクの有効期限が切れています。 <a href="{{ email_url }}">issue a new e-mail confirmation request</a>.{% endblocktrans %}</p>
+<p>リンクの有効期限が切れています。 <a href="{{ email_url }}">再申請</a>.</p>
 
 {% endif %} 
         </div>
