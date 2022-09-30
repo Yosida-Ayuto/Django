@@ -22,3 +22,17 @@ class bulletim_board(models.Model):
         verbose_name_plural ='bulletim_board'
     def __str__(self):#toString()
         return self.title
+
+class Comment_Model(models.Model):
+    # コメントのモデル
+
+    user = user = models.ForeignKey(CustomUser, verbose_name='ユーザー', on_delete=models.PROTECT)#日記の削除の時消されないようにする
+    title = models.CharField(verbose_name='タイトル',max_length=40)
+    content = models.TextField(verbose_name='本文', blank = True,null=True)
+    created_at = models.DateTimeField(verbose_name='作成日時',auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural ='bulletim_board'
+    def __str__(self):#toString()
+        return self.title
+    

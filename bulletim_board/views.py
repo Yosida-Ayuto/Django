@@ -81,3 +81,20 @@ class DeleteView(LoginRequiredMixin, OnlyYouMixin, generic.DeleteView):
 class DetailView(LoginRequiredMixin, generic.DetailView):
     model = bulletim_board
     template_name = 'detail.html'
+
+
+# 9月30 自分の投稿
+
+class Bulletim_boardMyListView(LoginRequiredMixin, generic.ListView):
+    model = bulletim_board
+    template_name = 'mylist.html'
+    paginate_by = 10
+
+    def get_queryset(self):
+        diaries = bulletim_board.objects.filter(user=self.request.user).order_by('-created_at')
+        return diaries
+
+
+class MyDetailView(LoginRequiredMixin, generic.DetailView):
+    model = bulletim_board
+    template_name = 'my_detail.html'

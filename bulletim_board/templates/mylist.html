@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}掲示板一覧{% endblock %}
+{% block title %}自分の投稿{% endblock %}
 
 {% block active_list %}list{% endblock %}
 
@@ -14,14 +14,16 @@
     <div class="row gx-4 gx-lg-5 justify-content-center">
         <div class="col-md-10 col-lg-8 col-xl-7">
             <div class="d-flex justify-content-end mb-4">
-                <a class="btn btn-primary " href="{% url 'bulletim_board:mylist' %} ">自分の投稿一覧</a>
+                
                 <a class="btn btn-primary float-right" href="{% url 'bulletim_board:create' %} ">投稿する</a>
             </div>
+
+            <h1>自分の投稿一覧</h1>
             <!-- _list の前はApp名にしないと動かない。変更済み -->
             {% for bulletim in bulletim_board_list %}
             <div class="post-preview">
                 
-                <a href="{% url 'bulletim_board:detail' bulletim.pk %}">
+                <a href="{% url 'bulletim_board:my_detail' bulletim.pk %}">
                     <h2 class="post-title">  
                         {{ bulletim.title }}
                     </h2>
@@ -29,7 +31,7 @@
                         {{ bulletim.content}}
                     </h3>
                 </a>
-                <a>スレ主 : {{ bulletim.user }}</a>
+                
                 <p class="post-meta">{{ bulletim.created_at }}</p>
             </div>
             <hr class="my-4">
@@ -67,6 +69,8 @@
                 {% endif %}
             </ul>
             {% endif %}
+
+            <a class="btn btn-success mt-5  mb-3" href="{% url 'bulletim_board:list' %}">一覧に戻る</a>
         </div>
     </div>
 </div>
