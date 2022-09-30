@@ -26,10 +26,10 @@ class IndexView(generic.TemplateView):
 class Bulletim_boardListView(LoginRequiredMixin, generic.ListView):
     model = bulletim_board
     template_name = 'list.html'
-    paginate_by = 2
+    paginate_by = 10
 
     def get_queryset(self):
-        diaries = bulletim_board.objects.filter(user=self.request.user).order_by('-created_at')
+        diaries = bulletim_board.objects.order_by('-created_at')
         return diaries
 
 

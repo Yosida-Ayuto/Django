@@ -1,5 +1,4 @@
-{% extends 'index.html' %}
-
+{% extends 'base.html' %}
 {% load static %}
 
 {% block title %}掲示板一覧{% endblock %}
@@ -20,21 +19,53 @@
             <!-- _list の前はApp名にしないと動かない。変更済み -->
             {% for bulletim in bulletim_board_list %}
             <div class="post-preview">
-                <a href="#">
-                    <h2 class="post-title">
+                
+                <a href="#"></a>
+                    <h2 class="post-title">  
                         {{ bulletim.title }}
                     </h2>
                     <h3 class="post-subtitle">
                         {{ bulletim.content}}
                     </h3>
                 </a>
+                <a>スレ主 : {{ bulletim.user }}</a>
                 <p class="post-meta">{{ bulletim.created_at }}</p>
             </div>
             <hr class="my-4">
             {% empty %}
             <p>投稿されたコンテンツがありません。</p>
             {% endfor %}
-            
+            <!-- ページネーション処理 -->
+            {% if is_paginated %}
+            <ul class="pagination">
+                <!-- 前ページへのリンク -->
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                {% endif %}
+
+                <!-- ページ数表示 -->
+                {% for page_num in page_obj.paginator.page_range %}
+                {% if page_obj.number == page_num %}
+                <li class="page-item active"><a class="page-link" href="#">{{ page_num }}</a></li>
+                {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a></li>
+                {% endif %}
+                {% endfor %}
+
+                <!-- 次ページへのリンク -->
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+            {% endif %}
         </div>
     </div>
 </div>
