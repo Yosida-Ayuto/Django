@@ -73,17 +73,10 @@
         </div>
     </div>
 
-
-    <hr style="border: 1px;">
-    <h4>コメントを残す</h4>
-
-    <form method="POST" action="">
-        <input type="text" name="comment"><br>
-        <button type="submit" class="btn btn-success mt-5 mb-3">送信する</button>
-    </form>
-
-
-
     <a class="btn btn-success mt-5  mb-3" href="{% url 'bulletim_board:list' %}">一覧に戻る</a>
+
+    
+    <a class="btn btn-success mt-5 mb-3" href="{% url 'bulletim_board:update' object.pk %}">編集</a>
+    <a class="btn btn-danger mt-5 ml-2 mb-3" href="{% url 'bulletim_board:delete' object.pk %}">削除</a>
 </div>
 {% endblock %}
