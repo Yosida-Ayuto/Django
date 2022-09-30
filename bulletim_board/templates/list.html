@@ -17,7 +17,8 @@
             <div class="d-flex justify-content-end mb-4">
                 <a class="btn btn-primary float-right" href="{% url 'bulletim_board:create' %} ">投稿する</a>
             </div>
-            {% for bulletim in bulletim_list %}
+            <!-- _list の前はApp名にしないと動かない。変更済み -->
+            {% for bulletim in bulletim_board_list %}
             <div class="post-preview">
                 <a href="#">
                     <h2 class="post-title">
@@ -33,6 +34,7 @@
             {% empty %}
             <p>投稿されたコンテンツがありません。</p>
             {% endfor %}
+            
         </div>
     </div>
 </div>
