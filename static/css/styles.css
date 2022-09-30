@@ -11354,7 +11354,7 @@ hr.divider-light {
   #mainNav {
     box-shadow: none;
     background-color: #b2cbe4;
-    /* transparent から変更 */
+    /* transparent（透明） から変更 */
   }
   #mainNav .navbar-brand {
     color: #d70035;
